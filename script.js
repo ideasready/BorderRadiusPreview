@@ -27,15 +27,15 @@ const changeBorderRadius = () => {
   const enableEight = check.checked;
 
   const textWithPercent = `
-  ${topLeft.value + select.value}
-  ${topRight.value + select.value}
-  ${bottomLeft.value + select.value}
-  ${bottomRight.value + select.value} 
+  ${topLeft.value + select.value} 
+  ${topRight.value + select.value} 
+  ${bottomLeft.value + select.value} 
+  ${bottomRight.value + select.value}  
   / 
-  ${startStart.value + select.value}
-  ${startEnd.value + select.value}
-  ${endStart.value + select.value}
-  ${endEnd.value + select.value}
+  ${startStart.value + select.value} 
+  ${startEnd.value + select.value} 
+  ${endStart.value + select.value} 
+  ${endEnd.value + select.value} 
   `
 
   const textNotWithPercent = `
@@ -115,4 +115,6 @@ check.addEventListener('change', () => {
 });
 
 // copy to clipboard
-button.addEventListener('click', () => {});
+button.addEventListener('click', () => {
+  navigator.clipboard.writeText(`border-radius: ${borderRadius.innerHTML}`);
+});
