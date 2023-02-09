@@ -44,17 +44,25 @@
       <option value="%">%</option>
       <option value="em">em</option>
     </select>
+
     <div class="inputs">
       <div class="left">
-        <input type="number" id="top-left" placeholder="Top Left">
-        <input type="number" id="bottom-left" placeholder="Bottom Left">
+        <input type="number" id="top-left" value="0" placeholder="Top Left">
+        <input type="number" id="bottom-left" value="0" placeholder="Bottom Left">
       </div>
       <div class="right">
-        <input type="number" id="top-right" placeholder="Top Right">
-        <input type="number" id="bottom-right" placeholder="Bottom Right">
+        <input type="number" id="top-right" value="0" placeholder="Top Right">
+        <input type="number" id="bottom-right" value="0" placeholder="Bottom Right">
       </div>
     </div>
     <div class="box"></div>
+    <div id="css-text" class="css">
+      <p>border-top-left-radius: <span id="top-left-text">0</span>;</p>
+      <p>border-top-right-radius: <span id="top-right-text">0</span>;</p>
+      <p>border-bottom-left-radius: <span id="bottom-left-text">0</span>;</p>
+      <p>border-bottom-right-radius: <span id="bottom-right-text">0</span>;</p>
+    </div>
+    <button id="copy" class="btn">Copy css</button>
     <p>
       Created with
       <span class="heart">❤</span> by
