@@ -13,48 +13,56 @@ const topRightText = document.getElementById('top-right-text');
 const bottomLeftText = document.getElementById('bottom-left-text');
 const bottomRightText = document.getElementById('bottom-right-text');
 
+// get element end, start
+const startStart = document.getElementById('start-start');
+const startEnd = document.getElementById('start-end');
+const endStart = document.getElementById('end-start');
+const endEnd = document.getElementById('end-end');
+
+// create html element to copy
+const htmlCopy = () => {
+  topLeftText.innerHTML = `${topLeft.value + select.value};`;
+  topRightText.innerHTML = `${topRight.value + select.value};`;
+  bottomLeftText.innerHTML = `${bottomLeft.value + select.value};`;
+  bottomRightText.innerHTML = `${bottomRight.value + select.value};`;
+}
+
+// change border radius
+const changeBorderRadius = () => {
+  box.style.borderRadius = `
+  ${topLeft.value + select.value} 
+  ${topRight.value + select.value} 
+  ${bottomLeft.value + select.value} 
+  ${bottomRight.value + select.value}`;
+};
 
 // change border radius
 topLeft.addEventListener('input', () => {
-  box.style.borderTopLeftRadius = topLeft.value + select.value;
-  topLeftText.innerHTML = `${topLeft.value + select.value};`;
+  changeBorderRadius();
+  htmlCopy();
 });
 
 topRight.addEventListener('input', () => {
-  box.style.borderTopRightRadius = topRight.value + select.value;
-  topRightText.innerHTML = `${topRight.value + select.value};`;
+  changeBorderRadius();
+  htmlCopy();
 });
 
 bottomLeft.addEventListener('input', () => {
-  box.style.borderBottomLeftRadius = bottomLeft.value + select.value;
-  bottomLeftText.innerHTML = `${bottomLeft.value + select.value};`;
+  changeBorderRadius();
+  htmlCopy();
 });
 
 bottomRight.addEventListener('input', () => {
-  box.style.borderBottomRightRadius = bottomRight.value + select.value;
-  bottomRightText.innerHTML = `${bottomRight.value + select.value};`;
+  changeBorderRadius();
+  htmlCopy();
 });
 
 select.addEventListener('change', () => {
-  box.style.borderTopLeftRadius = topLeft.value + select.value;
-  box.style.borderTopRightRadius = topRight.value + select.value;
-  box.style.borderBottomLeftRadius = bottomLeft.value + select.value;
-  box.style.borderBottomRightRadius = bottomRight.value + select.value;
-
-  topLeftText.innerHTML = `${topLeft.value + select.value};`;
-  topRightText.innerHTML = `${topRight.value + select.value};`;
-  bottomLeftText.innerHTML = `${bottomLeft.value + select.value};`;
-  bottomRightText.innerHTML = `${bottomRight.value + select.value};`;
+  changeBorderRadius();
+  htmlCopy();
 });
 
 // copy to clipboard
 button.addEventListener('click', () => {
-  navigator.clipboard.writeText(
-    `
-    border-top-left-radius: ${topLeft.value + select.value};
-    border-top-right-radius: ${topRight.value + select.value};
-    border-bottom-left-radius: ${bottomLeft.value + select.value};
-    border-bottom-right-radius: ${bottomRight.value + select.value};
-    `
-  );
+
 });
