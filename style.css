@@ -33,6 +33,14 @@
   font-weight: 700;
 }
 
+.sub-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
 .inputs {
   display: flex;
   flex-direction: row;

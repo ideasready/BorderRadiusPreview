@@ -39,11 +39,18 @@
 <body>
   <div class="container">
     <h1>Border Radius Previewer</h1>
-    <select>
-      <option value="px" selected>px</option>
-      <option value="%">%</option>
-      <option value="em">em</option>
-    </select>
+    <div class="sub-container">
+      <select>
+        <option value="px" selected>px</option>
+        <option value="%">%</option>
+        <option value="em">em</option>
+      </select>
+
+      <div class="check">
+        <input type="checkbox" name="eight" id="check">
+        <label for="check">Enable 8 functions</label>
+      </div>
+    </div>
 
     <div class="inputs">
       <div class="left">
@@ -60,14 +67,14 @@
         <label for="bottom-right">Bottom Right</label>
         <input type="number" id="bottom-right" value="0" placeholder="Bottom Right">
       </div>
-      <div class="start">
+      <div id="start" class="start">
         <label for="start-start">Start Start</label>
         <input type="number" id="start-start" value="0" placeholder="Start Start Radius">
 
         <label for="start-end">Start End</label>
         <input type="number" id="start-end" value="0" placeholder="Start End Radius">
       </div>
-      <div class="end">
+      <div id="end" class="end">
         <label for="end-start">End Start</label>
         <input type="number" id="end-start" value="0" placeholder="End Start Radius">
 
@@ -77,10 +84,7 @@
     </div>
     <div class="box"></div>
     <div id="css-text" class="css">
-      <p>border-top-left-radius: <span id="top-left-text">0px</span>;</p>
-      <p>border-top-right-radius: <span id="top-right-text">0px</span>;</p>
-      <p>border-bottom-left-radius: <span id="bottom-left-text">0px</span>;</p>
-      <p>border-bottom-right-radius: <span id="bottom-right-text">0px</span>;</p>
+      <p>border-radius: <span id="border-radius-text">0px 0px 0px 0px</span></p>
     </div>
     <button id="copy" class="btn">Copy css</button>
     <p>

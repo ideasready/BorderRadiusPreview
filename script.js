@@ -6,12 +6,11 @@ const bottomRight = document.getElementById('bottom-right');
 const box = document.querySelector('.box');
 const select = document.querySelector('select');
 const button = document.querySelector('#copy');
+const check = document.querySelector('#check');
+
 
 // get elements to css text
-const topLeftText = document.getElementById('top-left-text');
-const topRightText = document.getElementById('top-right-text');
-const bottomLeftText = document.getElementById('bottom-left-text');
-const bottomRightText = document.getElementById('bottom-right-text');
+const borderRadius = document.getElementById('border-radius-text');
 
 // get element end, start
 const startStart = document.getElementById('start-start');
@@ -19,50 +18,101 @@ const startEnd = document.getElementById('start-end');
 const endStart = document.getElementById('end-start');
 const endEnd = document.getElementById('end-end');
 
-// create html element to copy
-const htmlCopy = () => {
-  topLeftText.innerHTML = `${topLeft.value + select.value};`;
-  topRightText.innerHTML = `${topRight.value + select.value};`;
-  bottomLeftText.innerHTML = `${bottomLeft.value + select.value};`;
-  bottomRightText.innerHTML = `${bottomRight.value + select.value};`;
-}
+const start = document.getElementById('start');
+const end = document.getElementById('end');
+
 
 // change border radius
 const changeBorderRadius = () => {
-  box.style.borderRadius = `
+  const enableEight = check.checked;
+
+  const textWithPercent = `
+  ${topLeft.value + select.value}
+  ${topRight.value + select.value}
+  ${bottomLeft.value + select.value}
+  ${bottomRight.value + select.value} 
+  / 
+  ${startStart.value + select.value}
+  ${startEnd.value + select.value}
+  ${endStart.value + select.value}
+  ${endEnd.value + select.value}
+  `
+
+  const textNotWithPercent = `
   ${topLeft.value + select.value} 
   ${topRight.value + select.value} 
   ${bottomLeft.value + select.value} 
-  ${bottomRight.value + select.value}`;
+  ${bottomRight.value + select.value}`
+
+  if (!enableEight) {
+    box.style.borderRadius = textNotWithPercent;
+    borderRadius.innerHTML = textNotWithPercent;
+  } else {
+    box.style.borderRadius = textWithPercent;
+    borderRadius.innerHTML = textWithPercent;
+  }
 };
 
-// change border radius
+// enable start, end
+const enableStartEnd = () => {
+  changeBorderRadius();
+  if (check.checked && select.value !== '%') {
+    alert('Only in mode "%"');
+    check.checked = false;
+    enableStartEnd();
+  } else if (check.checked && select.value === '%') {
+    start.style.display = 'flex';
+    end.style.display = 'flex';
+  } else {
+    start.style.display = 'none';
+    end.style.display = 'none';
+  }
+};
+enableStartEnd();
+
+// events  top, bottom, left, right
 topLeft.addEventListener('input', () => {
   changeBorderRadius();
-  htmlCopy();
 });
 
 topRight.addEventListener('input', () => {
   changeBorderRadius();
-  htmlCopy();
 });
 
 bottomLeft.addEventListener('input', () => {
   changeBorderRadius();
-  htmlCopy();
 });
 
 bottomRight.addEventListener('input', () => {
   changeBorderRadius();
-  htmlCopy();
 });
 
+// events  start, end
+startStart.addEventListener('input', () => {
+  changeBorderRadius();
+});
+
+startEnd.addEventListener('input', () => {
+  changeBorderRadius();
+});
+
+endStart.addEventListener('input', () => {
+  changeBorderRadius();
+});
+
+endEnd.addEventListener('input', () => {
+  changeBorderRadius();
+});
+
+// change select
 select.addEventListener('change', () => {
   changeBorderRadius();
-  htmlCopy();
+  enableStartEnd();
+});
+
+check.addEventListener('change', () => {
+  enableStartEnd();
 });
 
 // copy to clipboard
-button.addEventListener('click', () => {
-
-});
+button.addEventListener('click', () => {});
