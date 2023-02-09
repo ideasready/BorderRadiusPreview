@@ -10,9 +10,10 @@ The border-radius property can have multiple values changed. Preview how the sha
 
 ## Bonus features
 
--   [ ] User can change all 8 possible values of the border-radius in order to create a complex shape
+-   [x] User can change all 8 possible values of the border-radius in order to create a complex shape
 
 ## Useful links and resources
 
 -   [CSS3 Borders](https://www.w3schools.com/css/css3_borders.asp)
 -   [Copy to Clipboard](https://www.w3schools.com/howto/howto_js_copy_clipboard.asp)
+-   [CSS3 BOrders Radius](https://9elements.com/blog/css-border-radius/)
